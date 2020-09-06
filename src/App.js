@@ -9,18 +9,27 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 
-  const [temp, setTemp] = useState("Loading...")
-//var temp = '0.00F'
-//var temp = '';
-fetch('http://localhost:3000/topic/bus-1-temp/current')
-  .then( res => res.json() )
-  .then( (result) => {
-    setTemp(result.value);
-  },
-  (error) => {
-    console.log(error);
-  })
+  const [temp, setTemp] = useState("Loading...");
+  const [humidity, setHumidity] = useState("Loading...");
+
+  fetch('http://localhost:3000/topic/-bus-1-temp/current')
+    .then( res => res.json() )
+    .then( (result) => {
+      setTemp(result.value);
+    },
+    (error) => {
+      console.log(error);
+    });
  
+  fetch('http://localhost:3000/topic/-bus-1-humidity/current')
+    .then( res => res.json() )
+    .then( (result) => {
+      setHumidity(result.value);
+    },
+    (error) => {
+      console.log(error);
+    });
+
   return (
     <>
       <Container>
@@ -29,6 +38,10 @@ fetch('http://localhost:3000/topic/bus-1-temp/current')
             <Card border='dark' bg='success' text='white'><Card.Body>
               <Card.Header>Bus Temp</Card.Header>
               <Card.Text>{temp}</Card.Text>
+            </Card.Body></Card>
+            <Card border='dark' bg='success' text='white'><Card.Body>
+              <Card.Header>Bus Humidity</Card.Header>
+              <Card.Text>{humidity}</Card.Text>
             </Card.Body></Card>
           </Col>
         </Row>
