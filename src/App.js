@@ -12,7 +12,7 @@ function App() {
   const [temp, setTemp] = useState("Loading...");
   const [humidity, setHumidity] = useState("Loading...");
 
-  fetch('http://localhost:3000/topic/-bus-1-temp/current')
+  fetch('http://10.0.0.200:3000/topic/-bus-1-temp/current')
     .then( res => res.json() )
     .then( (result) => {
       setTemp(result.value);
@@ -21,7 +21,7 @@ function App() {
       console.log(error);
     });
  
-  fetch('http://localhost:3000/topic/-bus-1-humidity/current')
+  fetch('http://10.0.0.200:3000/topic/-bus-1-humidity/current')
     .then( res => res.json() )
     .then( (result) => {
       setHumidity(result.value);
