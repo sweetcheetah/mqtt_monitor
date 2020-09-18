@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const bff_url = 'http://10.0.0.9:3000';
+const bff_url = 'http://10.0.0.200:3000';
 //const bff_url = proc.env.BFF_URL;
 
 
