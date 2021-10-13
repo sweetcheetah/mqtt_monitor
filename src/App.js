@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css'
 require('dotenv').config();
 const bff_url = process.env.BFF_URL;
+//const bff_url = 'http://10.0.0.200:3000';
 
 
 function App() {
