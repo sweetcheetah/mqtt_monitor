@@ -5,9 +5,8 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-const bff_url = 'http://10.0.0.9:3000';
-//const bff_url = proc.env.BFF_URL;
+require('dotenv').config();
+const bff_url = process.env.BFF_URL;
 
 
 function App() {
@@ -19,8 +18,10 @@ function App() {
   fetch(`${bff_url}/topic/bus-1-temp/current`)
     .then( res => res.json() )
     .then( (result) => {
-      setTemp(result.value);
-      setTempUpdated(result.lastUpdated);
+//      setTemp(result.value);
+//      const last_update = new Date();
+//      console.log(last_update);
+      //setTempUpdated(last_update.toString());
     },
     (error) => {
       console.log(error);
@@ -30,7 +31,7 @@ function App() {
     .then( res => res.json() )
     .then( (result) => {
       setHumidity(result.value);
-      setHumidityUpdated(result.lastUpdated);
+      setHumidityUpdated(new Date(result.lastUpdated));
     },
     (error) => {
       console.log(error);
